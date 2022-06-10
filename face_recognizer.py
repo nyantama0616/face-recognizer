@@ -23,14 +23,14 @@ def match(recognizer, feature1, dictionary):
 def main():
     # キャプチャを開く
     directory = os.path.dirname(__file__)
-    capture = cv2.VideoCapture(os.path.join(directory, "./image.jpg"))  # 画像ファイル
-    #capture = cv2.VideoCapture(0) # カメラ
+    # capture = cv2.VideoCapture(os.path.join(directory, "./image.jpg"))  # 画像ファイル
+    capture = cv2.VideoCapture(os.path.join(directory, sys.argv[1]))  # 画像ファイル
     if not capture.isOpened():
         exit()
 
     # 特徴を読み込む
     dictionary = []
-    files = glob.glob(os.path.join(directory, "*.npy"))
+    files = glob.glob(os.path.join(directory, "npy/*.npy"))
     for file in files:
         feature = np.load(file)
         user_id = os.path.splitext(os.path.basename(file))[0]

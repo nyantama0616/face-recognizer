@@ -45,7 +45,7 @@ def main():
 
     # 特徴を保存する
     basename = os.path.splitext(os.path.basename(args.image))[0]
-    dictionary = os.path.join(directory, basename)
+    dictionary = os.path.join(directory, "npy/", basename)
     np.save(dictionary, face_feature)
 
 
